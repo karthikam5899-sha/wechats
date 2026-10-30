@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #262626; font-synthesis: none; text-rendering: optimizeLegibility; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; background: #fafafa; }
+button, input, textarea { font: inherit; }
+button { cursor: pointer; }
+.sidebar-scroll { scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent; }
+.sidebar-scroll::-webkit-scrollbar { width: 6px; }
+.sidebar-scroll::-webkit-scrollbar-thumb { border-radius: 9999px; background: #cbd5e1; }
+.brand-wordmark {
+  color: #a21caf;
+  background: linear-gradient(110deg, #7c3aed 10%, #ec4899 35%, #f97316 50%, #ec4899 65%, #7c3aed 90%);
+  background-size: 220% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: brand-shimmer 4s ease-in-out infinite;
+  filter: drop-shadow(0 1px 5px rgb(168 85 247 / 18%));
+}
+@keyframes brand-shimmer {
+  to { background-position: 220% center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-wordmark { animation: none; background-position: center; }
+}
+.app-intro { animation: intro-fade-out 800ms ease 2.2s forwards; }
+.intro-logo { animation: intro-logo-pop 700ms cubic-bezier(.2,.8,.2,1) both; }
+.intro-float { position: absolute; color: rgb(192 38 211 / 65%); filter: drop-shadow(0 6px 12px rgb(126 34 206 / 16%)); animation: intro-float 2.8s ease-in-out infinite; }
+.intro-float-one { top: 20%; left: 18%; }
+.intro-float-two { top: 25%; right: 20%; animation-delay: 250ms; color: #db2777; }
+.intro-float-three { bottom: 23%; left: 25%; animation-delay: 500ms; color: #7c3aed; }
+.intro-float-four { right: 24%; bottom: 20%; animation-delay: 750ms; color: #ec4899; }
+.intro-loading-dot { width: 7px; height: 7px; border-radius: 9999px; background: #c026d3; animation: intro-dot 900ms ease-in-out infinite alternate; }
+.intro-loading-dot:nth-child(2) { animation-delay: 180ms; }
+.intro-loading-dot:nth-child(3) { animation-delay: 360ms; }
+@keyframes intro-fade-out {
+  to { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+@keyframes intro-logo-pop {
+  from { opacity: 0; transform: scale(.72); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes intro-float {
+  0%, 100% { transform: translateY(0) rotate(-8deg); }
+  50% { transform: translateY(-24px) rotate(8deg); }
+}
+@keyframes intro-dot {
+  to { opacity: .35; transform: translateY(-5px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app-intro { animation: none; }
+  .intro-logo, .intro-float, .intro-loading-dot { animation: none; }
+}
+::selection { background: #b2dffc; color: #00376b; }
